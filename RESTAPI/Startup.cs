@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using RESTAPI.Data;
 
 namespace RESTAPI
 {
@@ -32,6 +33,8 @@ namespace RESTAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RESTAPI", Version = "v1" });
             });
+
+            services.AddSingleton<ICourseData, MockCourse>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

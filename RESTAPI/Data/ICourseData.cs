@@ -3,7 +3,7 @@ using RESTAPI.Models;
 
 namespace RESTAPI.Data 
 {
-   interface ICourseData
+   public interface ICourseData
    {
        List<Course> GetCourses();
 
