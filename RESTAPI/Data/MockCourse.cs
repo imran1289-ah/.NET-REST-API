@@ -42,7 +42,12 @@ namespace RESTAPI.Data
 
         public void UpdateCourse(Course course)
         {
-            throw new System.NotImplementedException();
+            var courseUpdated = GetCourse(course.Id);
+            courseUpdated.CourseName = course.CourseName;
+            courseUpdated.CourseNumber = course.CourseNumber;
+            courseUpdated.CourseDepartment = course.CourseDepartment;
+            courseUpdated.CourseCredits = course.CourseCredits;
+            courseUpdated.CourseInstructor = course.CourseInstructor;
         }
     }
 }

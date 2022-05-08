@@ -68,5 +68,26 @@ namespace RESTAPI.Controllers
 
         }
 
+        //Delete method to delete a course by id
+        [HttpPatch]
+        [Route("api/[controller]/{id}")]
+        public IActionResult UpdateCourse(Guid id, Course course)
+        {
+            var Course = _coursedata.GetCourse(id);
+
+            if (Course != null)
+            {
+                course.Id = Course.Id;
+               _coursedata.UpdateCourse(course);
+
+                //Return 200 for sucess
+                return Ok();
+            }
+            else
+                //Return 404 for error
+                return NotFound("Course with id "+id+" was not found");
+
+        }
+
     }
 }
