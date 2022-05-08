@@ -11,3 +11,8 @@ A course instance contains
 - Course credits
 - Course instructor
 - Course Unique ID
+
+Tools used:
+- C#
+- Postman
+- Microsoft SQL Server Managment Studio  
