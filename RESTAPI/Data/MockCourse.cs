@@ -25,7 +25,7 @@ namespace RESTAPI.Data
 
         public void DeleteCourse(Course course)
         {
-            throw new System.NotImplementedException();
+            Courses.Remove(course);
         }
 
         //Get Course by Id

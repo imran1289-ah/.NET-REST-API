@@ -31,11 +31,11 @@ namespace RESTAPI.Controllers
 
             if (Course != null)
             {
-                //Return 200
+                //Return 200 for sucess
                 return Ok(Course);
             }
             else
-                //Return 404
+                //Return 404 for error
                 return NotFound("Course with id "+id+" was not found");
         }
 
@@ -45,8 +45,27 @@ namespace RESTAPI.Controllers
         public IActionResult AddCourse(Course course)
         {
             _coursedata.AddCourse(course);
-            //return 201
+            //return 201 for sucess
             return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + course.Id, course);
+        }
+
+        //Delete method to delete a course by id
+        [HttpDelete]
+        [Route("api/[controller]/{id}")]
+        public IActionResult DeleteCourse(Guid id)
+        {
+            var course = _coursedata.GetCourse(id);
+
+            if (course != null)
+            {
+               _coursedata.DeleteCourse(course);
+                //Return 200 for sucess
+                return Ok();
+            }
+            else
+                //Return 404 for error
+                return NotFound("Course with id "+id+" was not found");
+
         }
 
     }
