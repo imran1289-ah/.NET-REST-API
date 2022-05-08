@@ -4,7 +4,7 @@ REST API using .NET 5
 
 This API allows to make CRUD operations on courses.
 
-The course contains 
+A course instance contains 
 - Course name
 - Course number
 - Course department
