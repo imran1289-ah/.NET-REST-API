@@ -9,9 +9,9 @@ namespace RESTAPI.Data
         //Random Courses to Test API
         private List<Course> Courses = new List<Course>() 
         {
-            new Course{CourseName="Operating Systems", CourseNumber=346, CourseDepartment="COMP", CourseCredits=4, CourseInstructor="James Williams" },
-            new Course{CourseName="Differential Equations", CourseNumber=213, CourseDepartment="ENGR", CourseCredits=3, CourseInstructor="Kevin John" },
-            new Course{CourseName="Principles of Electrical Engineering", CourseNumber=275, CourseDepartment="ELEC", CourseCredits=3.5, CourseInstructor="Alex Lu" }
+            new Course{Id= 1,CourseName="Operating Systems", CourseNumber=346, CourseDepartment="COMP", CourseCredits=4, CourseInstructor="James Williams" },
+            new Course{Id=2, CourseName="Differential Equations", CourseNumber=213, CourseDepartment="ENGR", CourseCredits=3, CourseInstructor="Kevin John" },
+            new Course{Id=3, CourseName="Principles of Electrical Engineering", CourseNumber=275, CourseDepartment="ELEC", CourseCredits=3.5, CourseInstructor="Alex Lu" }
 
         };
 
@@ -25,9 +25,10 @@ namespace RESTAPI.Data
             throw new System.NotImplementedException();
         }
 
+        //Get Course by Id
         public Course GetCourse(int coursenumber)
         {
-            throw new System.NotImplementedException();
+            return Courses.Find(x => x.Id == coursenumber);
         }
 
         //Get all Courses

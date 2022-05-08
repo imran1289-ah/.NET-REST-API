@@ -20,5 +20,20 @@ namespace RESTAPI.Controllers
             return Ok(_coursedata.GetCourses());
         }
 
+        //GET method to get a course by id
+        [HttpGet]
+        [Route("api/[controller]/{id}")]
+        public IActionResult GetCourseById(int id)
+        {
+            var Course = _coursedata.GetCourse(id);
+
+            if (Course != null)
+            {
+                return Ok(Course);
+            }
+            else
+                return NotFound("Course with id "+id+" was not found");
+        }
+
     }
 }
