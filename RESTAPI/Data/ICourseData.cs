@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RESTAPI.Models;
 
@@ -7,7 +8,7 @@ namespace RESTAPI.Data
    {
        List<Course> GetCourses();
 
-       Course GetCourse(int coursenumber);
+       Course GetCourse(Guid coursenumber);
 
        Course AddCourse(Course course);
 
