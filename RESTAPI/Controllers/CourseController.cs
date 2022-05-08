@@ -4,7 +4,6 @@ using RESTAPI.Data;
 namespace RESTAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class CourseController : ControllerBase
     {
         private ICourseData _coursedata;
@@ -14,6 +13,12 @@ namespace RESTAPI.Controllers
         }
 
         //GET method to get all courses
-        
+        [HttpGet]
+        [Route("api/[controller]")]
+        public IActionResult GetCourses()
+        {
+            return Ok(_coursedata.GetCourses());
+        }
+
     }
 }
