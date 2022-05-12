@@ -8,7 +8,7 @@ namespace RESTAPI.Data
    {
        List<Course> GetCourses();
 
-       Course GetCourse(Guid coursenumber);
+       Course GetCourse(Guid id);
 
        Course AddCourse(Course course);
 
