@@ -29,9 +29,9 @@ namespace RESTAPI.Data
         }
 
         //Get Course by Id
-        public Course GetCourse(Guid id)
+        public Course GetCourse(Guid coursenumber)
         {
-            return Courses.Find(x => x.Id == id);
+            return Courses.Find(x => x.Id == coursenumber);
         }
 
         //Get all Courses

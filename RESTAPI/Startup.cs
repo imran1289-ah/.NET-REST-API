@@ -12,8 +12,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RESTAPI.Data;
-using RESTAPI.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace RESTAPI
 {
@@ -31,15 +29,12 @@ namespace RESTAPI
         {
 
             services.AddControllers();
-            
-            services.AddDbContextPool<CourseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CourseContextConnectionString")));
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RESTAPI", Version = "v1" });
             });
 
-            services.AddScoped<ICourseData, SqlCourseData>();
+            services.AddSingleton<ICourseData, MockCourse>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
